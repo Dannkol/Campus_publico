@@ -9,17 +9,18 @@
 
 :root{
     --color-primario: #EF5E3F;
-    --color-secundario: black;
-    --index-z-1: 1;
-    -index-z-2: 2;
+    --color-secundario: rgba(0, 0, 0, 0.5);
+    --index-z-back: 1;
+    --index-z-front: 2;
 }
 
 *{
-    font-family: fontawesome;
+    font-family: fontawesome !important;
 }
 
 nav{
     font-size: 24px;
+    opacity: 0.9 !important;
 }
 
 .navbar-brand{
@@ -33,8 +34,10 @@ nav{
 }
 
 header{
+    position: sticky;
+    top: 0;
     padding-top: 10px;
-    opacity: 0.8;
+    opacity: 1;
     background-color: var(--color-secundario) !important;
     height: 80px;
     width: 100%;
@@ -42,11 +45,12 @@ header{
 
 .bg-cover-section1{
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     background-image: url(../images/fondo-bienvenido-grande.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    margin-top: -80px;
 }
 
 #whois{
@@ -68,8 +72,11 @@ header{
 }
 
 
+svg{
+    fill: var(--color-primario);
+}
 
-.icon-svg svg{
+.icon-svg{
     width: 100px;
     height: 100px;
     fill: var(--color-primario);
@@ -136,12 +143,14 @@ h1{
   }
 
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1000px) {
     .navbar{
         justify-content: center !important;
         gap: 20px !important;
+        
     }
     ul{
+        text-align: center;
         background-color: var(--color-secundario);
         color: white;
     }
