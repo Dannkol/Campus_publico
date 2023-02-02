@@ -11,6 +11,15 @@
         }
     },
     "main": {
+
+        "header_bg" : {
+            "img" : "../images/fondo-bienvenido-grande.jpg",
+            "text" : {
+                "p" : "Bienvanidos a nuestro estudio",
+                "h1" :"ENCANTADOS DE CONCERTE"
+            }
+        },
+
         "whois": {
             "img" : "images/nosotros.svg",
             "h1": "¿Quienes somos?",

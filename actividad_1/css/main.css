@@ -1,9 +1,6 @@
 @font-face {
-    font-family: fontawesome;
-    src: url('../fonts/fontawesome-webfont.ttf') format('truetype');
-    src: url('../fonts/fontawesome-webfont.eot') format('truetype');
-    src: url('../fonts/fontawesome-webfont.woff') format('truetype');
-    src: url('../fonts/fontawesome-webfont.woff2') format('truetype');
+    font-family: "fontawesome-webfont";
+    src: url('../fonts/opensans-regular-webfont.woff');
 }
 
 
@@ -14,8 +11,8 @@
     --index-z-front: 2;
 }
 
-*{
-    font-family: fontawesome !important;
+body{
+    font-family: "fontawesome-webfont" !important;
 }
 
 nav{
@@ -28,8 +25,8 @@ nav{
     font-size: 24px;
 }
 
-.active {
-    background: var(--color-primario) ;
+.nav-item:hover{
+    background: var(--color-primario);
     border-radius: 5px !important;
 }
 
@@ -41,12 +38,12 @@ header{
     background-color: var(--color-secundario) !important;
     height: 80px;
     width: 100%;
+    z-index: var(--index-z-front);
 }
 
 .bg-cover-section1{
     width: 100%;
     height: 100vh;
-    background-image: url(../images/fondo-bienvenido-grande.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -71,6 +68,10 @@ header{
     background-color: white;
 }
 
+.img-proyect{
+    overflow: hidden;
+    z-index: var(--index-z-back);
+}
 
 svg{
     fill: var(--color-primario);
@@ -141,6 +142,13 @@ h1{
     
     }
   }
+
+  @media screen and (max-width: 600px) {
+    .nav-item:active{
+        background: var(--color-primario);
+        border-radius: 5px !important;
+    }    
+  } 
 
 
   @media screen and (max-width: 1000px) {

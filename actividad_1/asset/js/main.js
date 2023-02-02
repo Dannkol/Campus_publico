@@ -1,11 +1,10 @@
 //constantes de DOM 
-const body = document.getElementById("body-all");
 const navbar = document.querySelector(".navbar");
+const header_bg = document.querySelector("#header-bg");
 const whois = document.querySelector("#whois");
 const nost = document.querySelector('#nuestros');
 const proyect = document.querySelector('#proyecto');
 const footer = document.querySelector('.footer');
-
 
 //funciones generacion genericas
 function divflex() {
@@ -13,8 +12,6 @@ function divflex() {
     newdiv.setAttribute('class', 'd-flex justify-content-center align-items-center flex-row flex-wrap');
     return newdiv;
 }
-
-
 
 //Header
 function dibujarHeader(data) {
@@ -37,6 +34,15 @@ function dibujarHeader(data) {
     }
 }
 
+
+//header-bg
+
+function dibujarbg(data) {
+    header_bg.setAttribute('style', 'background-image: url(' + data.img + ');');
+    header_bg.childNodes[1].childNodes[1].textContent = data.text.p;
+    header_bg.childNodes[1].childNodes[3].textContent = data.text.h1;
+
+}
 //whois
 
 function dibujarwhois(data) {
@@ -45,8 +51,6 @@ function dibujarwhois(data) {
     const h1Text = data.whois.h1;
     const pText = data.whois.p;
 
-    console.log(data.whois)
-
     whois.childNodes[1].childNodes[1].childNodes[1].attributes[0].nodeValue = data.whois.img
 
     h1.textContent = h1Text;
@@ -54,7 +58,6 @@ function dibujarwhois(data) {
     p.textContent = pText;
 
 }
-
 
 //Nuestros servicios
 
@@ -114,41 +117,30 @@ function dibujarproyectos(data) {
 
 //footer
 
-function dibujarfooter(data){
+function dibujarfooter(data) {
     footer.textContent = data.text
 }
 
-
-
 //lector de json asincrona
 
-const xhttp = new XMLHttpRequest();
-
-
-xhttp.open('GET', './asset/main.json', true);
-
-xhttp.send();
-
-xhttp.onreadystatechange = function () {
-
-    //validamos que la informacion se consiquiera correctamente
-    this.readyState == 4 && this.status == 200 ? dibujar(JSON.parse(this.responseText)) : console.error('404 NOT FOUND : ' , this.status);
-
-    //funcion para dibuhar en pantalla
-
-    function dibujar(data) {
-
-
+fetch('./asset/main.json', {
+    method: 'GET',
+    headers: {
+        'Accept': 'application/json',
+    },
+})
+    .then(response => response.json())
+    .then(response => {
+        const data = JSON.parse(JSON.stringify(response))
+        dibujarbg(data.main.header_bg);
         dibujarHeader(data.header);
-    
+
         dibujarwhois(data.main);
 
         dibujarnuestros(data.main);
 
         dibujarproyectos(data.main);
 
-        dibujarfooter(data.footer)
+        dibujarfooter(data.footer);
+})
 
-    }
-
-}
