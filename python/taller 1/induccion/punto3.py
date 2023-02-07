@@ -1,0 +1,1 @@
+"""3. Si hay operadores de igual precedencia, en qué orden se ejecutan? De izquierda a derecha"""
