@@ -4,7 +4,7 @@
 
 
 body{
-    background-image: url(./img/textura.jpg);
+    
 }
 
 
@@ -13,6 +13,9 @@ body{
 main{
     position: relative;
     padding: 0 10%;
+    height: 100vh;
+    height: auto;
+    background-image: url(./img/textura.jpg);
 }
 header{
     position: relative;
@@ -58,7 +61,7 @@ header div h1{
 
 section{
     position: relative;
-    height: 155vh;
+    height: 110vh;
 
 }
 
@@ -70,7 +73,7 @@ section article{
     position: absolute;
     display: inline-block;
     width: 28%;
-    height: 100vh;
+    height: 95vh;
     padding: 30px;
 }
 
